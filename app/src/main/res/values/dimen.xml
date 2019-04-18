@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="inset_single">10dp</dimen>
+    <dimen name="inset_double">20dp</dimen>
+    <dimen name="inset_quad">40dp</dimen>
+
+    <dimen name="text_small">11sp</dimen>
+    <dimen name="text_normal">14sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_xlarge">20sp</dimen>
+
+    <dimen name="spinner_default_height">40dp</dimen>
+    <dimen name="button_default_height">40dp</dimen>
+</resources>

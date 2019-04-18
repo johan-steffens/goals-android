@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/inset_double"
+        android:paddingBottom="@dimen/inset_double">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editAspect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/inset_single"
+                android:layout_marginRight="@dimen/inset_single"
+                android:padding="@dimen/inset_single"
+                android:hint="Aspect of your life you want to challenge"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/wet_asphalt"
+                android:textColorHint="@color/asbestos"
+                android:lines="1"
+                android:inputType="textCapSentences"
+                android:gravity="top"/>
+
+            <EditText
+                android:id="@+id/editGoal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/inset_single"
+                android:layout_marginRight="@dimen/inset_single"
+                android:padding="@dimen/inset_single"
+                android:hint="An optional long-term goal for this aspect"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/wet_asphalt"
+                android:textColorHint="@color/asbestos"
+                android:lines="1"
+                android:inputType="textCapSentences"
+                android:gravity="top"/>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/btnPalette"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@color/pink_dark"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textStyle="italic"
+            android:textSize="@dimen/text_medium"
+            android:gravity="end"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/inset_double"
+            android:layout_marginLeft="@dimen/inset_single"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/inset_single"
+        android:paddingRight="@dimen/inset_single"
+        android:layout_marginTop="@dimen/inset_single"
+        android:layout_marginBottom="@dimen/inset_double"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/viewDivider"
+            android:layout_width="match_parent"
+            android:layout_height="2.5dp"
+            android:background="@color/wet_asphalt" />
+
+    </RelativeLayout>
+
+</LinearLayout>

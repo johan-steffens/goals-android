@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAspects"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_default_height"
+        android:layout_weight="1"
+        android:background="@drawable/btn_primary_selector"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="Manage Aspects"
+        android:textColor="#FFF"
+        android:textSize="@dimen/text_small"
+        android:paddingLeft="@dimen/inset_double"
+        android:paddingRight="@dimen/inset_double"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:layout_marginTop="@dimen/inset_double"
+        android:layout_marginBottom="@dimen/inset_double"
+        android:layout_marginLeft="@dimen/inset_double"
+        android:layout_marginRight="@dimen/inset_single" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAddChallenge"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_default_height"
+        android:layout_weight="1"
+        android:background="@drawable/btn_primary_selector"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="Add Challenge"
+        android:textColor="#FFF"
+        android:textSize="@dimen/text_small"
+        android:paddingLeft="@dimen/inset_double"
+        android:paddingRight="@dimen/inset_double"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:layout_marginTop="@dimen/inset_double"
+        android:layout_marginLeft="@dimen/inset_single"
+        android:layout_marginRight="@dimen/inset_double"
+        android:layout_marginBottom="@dimen/inset_double" />
+
+</LinearLayout>

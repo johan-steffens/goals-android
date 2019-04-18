@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/inset_double">
+
+        <TextView
+            android:id="@+id/txtAspect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Exercise"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold"
+            android:textColor="@color/pink_dark"
+            android:layout_marginLeft="@dimen/inset_double"/>
+
+        <TextView
+            android:id="@+id/btnRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove"
+            android:textStyle="italic"
+            android:textSize="@dimen/text_medium"
+            android:gravity="end"
+            android:paddingLeft="@dimen/inset_double"
+            android:paddingRight="@dimen/inset_double"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="@dimen/text_normal"
+        android:layout_marginLeft="@dimen/inset_double"
+        android:layout_marginRight="@dimen/inset_double"
+        android:layout_marginBottom="@dimen/inset_single"
+        android:visibility="gone"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/inset_single"
+        android:paddingRight="@dimen/inset_single"
+        android:layout_marginTop="@dimen/inset_single"
+        android:layout_marginBottom="@dimen/inset_double">
+
+        <View
+            android:id="@+id/viewDivider"
+            android:layout_width="match_parent"
+            android:layout_height="2.5dp"
+            android:background="@color/pink_light" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#778beb</color>
+    <color name="colorPrimaryDark">#546de5</color>
+    <color name="colorAccent">#c44569</color>
+
+    <color name="green_sea_dark">#16a085</color>
+    <color name="green_sea_light">#51C1AB</color>
+
+    <color name="salmon_dark">#f19066</color>
+    <color name="salmon_light">#f3a683</color>
+
+    <color name="yellow_dark">#f5cd79</color>
+    <color name="yellow_light">#f7d794</color>
+
+    <color name="blueberry_dark">#546de5</color>
+    <color name="blueberry_light">#778beb</color>
+
+    <color name="orange_dark">#e15f41</color>
+    <color name="orange_light">#e77f67</color>
+
+    <color name="pink_dark">#c44569</color>
+    <color name="pink_light">#cf6a87</color>
+
+    <color name="crimson_dark">#E63D34</color>
+    <color name="crimson_light">#E45C55</color>
+
+    <color name="ocean_dark">#347289</color>
+    <color name="ocean_light">#51899E</color>
+
+    <color name="lime_dark">#75AF25</color>
+    <color name="lime_light">#91C746</color>
+
+    <color name="purple_dark">#574b90</color>
+    <color name="purple_light">#786fa6</color>
+
+    <color name="rose_dark">#f78fb3</color>
+    <color name="rose_light">#f8a5c2</color>
+
+    <color name="sky_dark">#3dc1d3</color>
+    <color name="sky_light">#63cdda</color>
+
+    <color name="peach_dark">#e66767</color>
+    <color name="peach_light">#ea8685</color>
+
+    <color name="bedrock_dark">#303952</color>
+    <color name="bedrock_light">#596275</color>
+
+    <color name="clouds">#ecf0f1</color>
+    <color name="silver">#bdc3c7</color>
+    <color name="concrete">#95a5a6</color>
+    <color name="asbestos">#7f8c8d</color>
+    <color name="wet_asphalt">#34495e</color>
+
+    <color name="transparent">#00000000</color>
+
+</resources>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:title="Goals"
+        app:titleTextColor="#FFF"
+        app:navigationIcon="@drawable/ic_back_white">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/layoutButtonBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAdd"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_default_height"
+            android:layout_marginLeft="@dimen/inset_double"
+            android:layout_marginTop="@dimen/inset_double"
+            android:layout_marginRight="@dimen/inset_single"
+            android:layout_marginBottom="@dimen/inset_double"
+            android:layout_weight="1"
+            android:background="@drawable/btn_primary_selector"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingLeft="@dimen/inset_double"
+            android:paddingTop="0dp"
+            android:paddingRight="@dimen/inset_double"
+            android:paddingBottom="0dp"
+            android:text="Add Challenge"
+            android:textColor="#FFF"
+            android:textSize="@dimen/text_small" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_default_height"
+            android:layout_weight="1"
+            android:background="@drawable/btn_primary_negative_selector"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="Cancel"
+            android:textColor="#FFF"
+            android:textSize="@dimen/text_small"
+            android:paddingLeft="@dimen/inset_double"
+            android:paddingRight="@dimen/inset_double"
+            android:paddingTop="0dp"
+            android:paddingBottom="0dp"
+            android:layout_marginTop="@dimen/inset_double"
+            android:layout_marginLeft="@dimen/inset_single"
+            android:layout_marginRight="@dimen/inset_double"
+            android:layout_marginBottom="@dimen/inset_double" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_above="@id/layoutButtonBar"
+        android:layout_below="@id/toolbar"
+        android:paddingTop="@dimen/inset_double">
+
+        <LinearLayout
+            android:id="@+id/layoutAspect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/inset_single">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aspect"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_small"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double"/>
+
+            <TextView
+                android:id="@+id/txtAspect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Career Goals"
+                android:textSize="@dimen/text_large"
+                android:gravity="end"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double"
+                android:visibility="gone"/>
+
+            <za.co.steff.goals.ui.view.MaterialSpinner
+                android:id="@+id/spinAspect"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_default_height"
+                android:padding="@dimen/inset_single"
+                android:layout_marginLeft="@dimen/inset_single"
+                android:layout_marginRight="@dimen/inset_single"
+                android:hint="Which aspect you will be challenging"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/wet_asphalt"
+                android:textColorHint="@color/asbestos"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/inset_single">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Challenge type"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_small"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double"/>
+
+            <za.co.steff.goals.ui.view.MaterialSpinner
+                android:id="@+id/spinType"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_default_height"
+                android:padding="@dimen/inset_single"
+                android:layout_marginLeft="@dimen/inset_single"
+                android:layout_marginRight="@dimen/inset_single"
+                android:hint="How you will be tracking your progress"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/wet_asphalt"
+                android:textColorHint="@color/asbestos"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutScore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/inset_single">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Target score"
+                android:textStyle="bold"
+                android:textSize="@dimen/text_small"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double"/>
+
+            <EditText
+                android:id="@+id/editScore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/inset_single"
+                android:layout_marginRight="@dimen/inset_single"
+                android:padding="@dimen/inset_single"
+                android:hint="Amount of points needed to win challenge"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/wet_asphalt"
+                android:textColorHint="@color/asbestos"
+                android:inputType="numberSigned"
+                android:lines="1"
+                android:gravity="top"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/inset_single">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Completion condition"
+                android:textSize="@dimen/text_small"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double"/>
+
+            <EditText
+                android:id="@+id/editCompletionCondition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/inset_single"
+                android:layout_marginRight="@dimen/inset_single"
+                android:padding="@dimen/inset_single"
+                android:hint="The condition that needs to be met for this challenge to be successfully completed"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/wet_asphalt"
+                android:textColorHint="@color/asbestos"
+                android:lines="2"
+                android:inputType="textMultiLine|textCapSentences"
+                android:gravity="top"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/inset_single">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reward"
+                android:textSize="@dimen/text_small"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double"/>
+
+            <EditText
+                android:id="@+id/editReward"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/inset_single"
+                android:layout_marginRight="@dimen/inset_single"
+                android:padding="@dimen/inset_single"
+                android:hint="An optional reward for completing this challenge successfully"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/wet_asphalt"
+                android:textColorHint="@color/asbestos"
+                android:inputType="textMultiLine|textCapSentences"
+                android:lines="2"
+                android:gravity="top"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/inset_single">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Challenge expiration"
+                android:textSize="@dimen/text_small"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double"/>
+
+            <Switch
+                android:id="@+id/switchExpiration"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:checked="false"
+                android:text="Will not expire"
+                android:textSize="@dimen/text_normal"
+                android:textColor="@color/asbestos"
+                android:thumbTint="@color/colorPrimaryDark"
+                android:trackTint="@color/colorPrimaryDark"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/inset_single">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Expiration date"
+                android:textSize="@dimen/text_small"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnExpirationDate"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_default_height"
+                android:background="@drawable/btn_secondary_selector"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="Select date"
+                android:textColor="#FFF"
+                android:textSize="@dimen/text_small"
+                android:enabled="false"
+                android:paddingLeft="@dimen/inset_double"
+                android:paddingRight="@dimen/inset_double"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="@dimen/inset_double"
+                android:layout_marginRight="@dimen/inset_double" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
