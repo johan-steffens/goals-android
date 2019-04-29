@@ -1,6 +1,8 @@
 package za.co.steff.goals.ui.activity;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -92,6 +94,16 @@ public class AspectActivity extends BaseActivity {
             populateListData();
             fabAddAspect.setVisibility(View.VISIBLE);
             listAspects.setSelection(adapter.getCount() - 1);
+        }
+
+        @Override
+        public void onLastItemReached() {
+            fabAddAspect.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void onLastItemLeft() {
+            fabAddAspect.setVisibility(View.VISIBLE);
         }
     };
 

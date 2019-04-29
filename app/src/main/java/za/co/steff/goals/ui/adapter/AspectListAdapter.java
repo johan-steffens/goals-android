@@ -27,7 +27,9 @@ public class AspectListAdapter extends BaseAdapter {
     private Context context;
     private List<Aspect> aspects;
 
+    private boolean lastItem = false;
     private boolean adding = false;
+
     private Palette selectedPalette;
     private View addingView;
 
@@ -100,6 +102,15 @@ public class AspectListAdapter extends BaseAdapter {
                 }
                 ((ViewGroup) view.getParent()).performClick();
             });
+        }
+
+        // Check if this is the last item and notify
+        if(position == getCount() - 1 && ! lastItem) {
+            lastItem = true;
+            listener.onLastItemReached();
+        } else if(position != getCount() - 1 && lastItem) {
+            lastItem = false;
+            listener.onLastItemLeft();
         }
 
         // Set holder as tag of view and return
@@ -210,6 +221,8 @@ public class AspectListAdapter extends BaseAdapter {
         void onRemoveAspectClicked(Aspect aspect);
         void onPaletteSelectionRequested();
         void onAspectAdded();
+        void onLastItemReached();
+        void onLastItemLeft();
 
     }
 }
