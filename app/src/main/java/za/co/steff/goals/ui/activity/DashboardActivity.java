@@ -108,7 +108,9 @@ public class DashboardActivity extends BaseActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             if(menuItem.getItemId() == R.id.btnMenuManageAspects) {
-                Log.e("MENU", "btnMenuManageAspects clicked");
+                Intent i = new Intent(DashboardActivity.this, AspectActivity.class);
+                startActivity(i);
+                drawerLayout.closeDrawers();
                 return true;
             } else if(menuItem.getItemId() == R.id.btnMenuSettings) {
                 Log.e("MENU", "btnMenuSettings clicked");

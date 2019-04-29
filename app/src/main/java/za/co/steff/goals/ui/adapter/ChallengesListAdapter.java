@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.common.base.Strings;
@@ -83,6 +84,18 @@ public class ChallengesListAdapter extends BaseAdapter {
                 holder.viewProgressBackground.setBackgroundColor(context.getResources().getColor(PaletteType.getLightRes(aspect.getPalette().getTarget().getPaletteType())));
                 holder.viewProgressForeground.setBackgroundColor(context.getResources().getColor(PaletteType.getDarkRes(aspect.getPalette().getTarget().getPaletteType())));
 
+                // Set daily
+                if(challenge.getType() == ChallengeType.Daily && DateUtil.isToday(challenge.getUpdatedAt())) {
+                    holder.imgChecked.setVisibility(View.VISIBLE);
+                    holder.imgUnchecked.setVisibility(View.GONE);
+                } else if(challenge.getType() == ChallengeType.Daily && ! DateUtil.isToday(challenge.getUpdatedAt())) {
+                    holder.imgChecked.setVisibility(View.GONE);
+                    holder.imgUnchecked.setVisibility(View.VISIBLE);
+                } else {
+                    holder.imgChecked.setVisibility(View.GONE);
+                    holder.imgUnchecked.setVisibility(View.GONE);
+                }
+
                 // Rather show expiry text if it's set
                 if(challenge.getExpiresAt() != null) {
                     holder.txtSince.setText("expires " + DateUtil.getNicePhraseFromDate(challenge.getExpiresAt(), false));
@@ -144,6 +157,10 @@ public class ChallengesListAdapter extends BaseAdapter {
         TextView txtAspect;
         @BindView(R.id.txtType)
         TextView txtType;
+        @BindView(R.id.imgChecked)
+        ImageView imgChecked;
+        @BindView(R.id.imgUnchecked)
+        ImageView imgUnchecked;
         @BindView(R.id.txtCompletion)
         TextView txtCompletion;
         @BindView(R.id.txtSince)
