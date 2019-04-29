@@ -1,7 +1,10 @@
 package za.co.steff.goals.ui.activity;
 
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
@@ -29,6 +32,8 @@ public class AspectActivity extends BaseActivity {
 
     private AspectListAdapter adapter;
 
+    private boolean fabHidden = false;
+
     @Override
     protected int getContentView() {
         return R.layout.activity_aspect;
@@ -51,6 +56,7 @@ public class AspectActivity extends BaseActivity {
         adapter = new AspectListAdapter(AspectActivity.this, aspects);
         adapter.setListener(aspectListEventListener);
         listAspects.setAdapter(adapter);
+        listAspects.setOnScrollListener(listScrollListener);
     }
 
     @OnClick(R.id.fabAddAspect)
@@ -60,7 +66,6 @@ public class AspectActivity extends BaseActivity {
         adapter.notifyDataSetInvalidated();
 
         // Hide fab and scroll to bottom of list
-        fabAddAspect.setVisibility(View.GONE);
         listAspects.smoothScrollToPosition(adapter.getCount() - 1);
     }
 
@@ -68,6 +73,22 @@ public class AspectActivity extends BaseActivity {
         ObjectBox.get().boxFor(Aspect.class).remove(aspect);
         populateListData();
     }
+
+    private AbsListView.OnScrollListener listScrollListener = new AbsListView.OnScrollListener() {
+        @Override
+        public void onScrollStateChanged(AbsListView view, int scrollState) {}
+
+        @Override
+        public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+            if(! listAspects.canScrollVertically(1)){
+                fabAddAspect.setVisibility(View.GONE);
+                fabHidden = true;
+            } else if(listAspects.canScrollVertically(1) && fabHidden) {
+                fabAddAspect.setVisibility(View.VISIBLE);
+                fabHidden = false;
+            }
+        }
+    };
 
     private AspectListAdapter.AspectListEventListener aspectListEventListener = new AspectListAdapter.AspectListEventListener() {
         @Override
@@ -92,18 +113,7 @@ public class AspectActivity extends BaseActivity {
         @Override
         public void onAspectAdded() {
             populateListData();
-            fabAddAspect.setVisibility(View.VISIBLE);
             listAspects.setSelection(adapter.getCount() - 1);
-        }
-
-        @Override
-        public void onLastItemReached() {
-            fabAddAspect.setVisibility(View.GONE);
-        }
-
-        @Override
-        public void onLastItemLeft() {
-            fabAddAspect.setVisibility(View.VISIBLE);
         }
     };
 
