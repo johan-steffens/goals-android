@@ -37,19 +37,35 @@ public class DateUtil {
         return today.equals(inputDate);
     }
 
+    public static boolean isYesterday(DateTime inputDate) {
+        inputDate = inputDate.withTimeAtStartOfDay();
+        DateTime yesterday = new DateTime().minusDays(1).withTimeAtStartOfDay();
+        return yesterday.equals(inputDate);
+    }
+
     public static boolean isTomorrow(DateTime inputDate) {
         inputDate = inputDate.withTimeAtStartOfDay();
         DateTime tomorrow = new DateTime().withTimeAtStartOfDay().plusDays(1);
         return tomorrow.equals(inputDate);
     }
 
+    public static boolean isTwoDaysAgo(DateTime inputDate) {
+        inputDate = inputDate.withTimeAtStartOfDay();
+        DateTime twoDaysAgo = new DateTime().minusDays(2).withTimeAtStartOfDay();
+        return twoDaysAgo.equals(inputDate);
+    }
+
     public static boolean isInThisWeek(DateTime inputDate) {
-        DateTime sunday = DateTime.now();
-        sunday = sunday.plusDays(7 - DateTime.now().getDayOfWeek());
-        sunday = sunday.withTime(23, 59, 59, 59);
+        DateTime thisSunday = DateTime.now();
+        thisSunday = thisSunday.plusDays(7 - DateTime.now().getDayOfWeek());
+        thisSunday = thisSunday.withTime(23, 59, 59, 59);
+
+        DateTime lastSunday = DateTime.now();
+        lastSunday = lastSunday.minusDays(DateTime.now().getDayOfWeek());
+        lastSunday = lastSunday.withTime(0, 0, 0, 0);
 
         // Check if today is sunday
-        return inputDate.isBefore(sunday);
+        return inputDate.isBefore(thisSunday) && inputDate.isAfter(lastSunday);
     }
 
     public static boolean isInNextWeek(DateTime inputDate) {
@@ -62,8 +78,12 @@ public class DateUtil {
         nextSunday = nextSunday.plusWeeks(1);
         nextSunday = nextSunday.withTime(23, 59, 59, 59);
 
+        DateTime lastSunday = DateTime.now();
+        lastSunday = lastSunday.minusDays(DateTime.now().getDayOfWeek());
+        lastSunday = lastSunday.withTime(0, 0, 0, 0);
+
         // Check if today is sunday
-        return inputDate.isBefore(nextSunday);
+        return inputDate.isBefore(nextSunday) && inputDate.isAfter(lastSunday);
     }
 
     public static String getHumanReadableDate(DateTime inputDate) {
@@ -90,6 +110,12 @@ public class DateUtil {
             phrase += "today";
         } else if(isTomorrow(date)) {
             phrase += "tomorrow";
+        } else if(isYesterday(date)) {
+            phrase += "yesterday";
+        } else if(isTwoDaysAgo(date)) {
+            phrase += "two days ago";
+        } else if(date.isBeforeNow() && isInThisWeek(date)) {
+            phrase += "last " + getDayName(date);
         } else if(isInThisWeek(date)) {
             phrase += "this " + getDayName(date);
         } else if(isInNextWeek(date)) {
