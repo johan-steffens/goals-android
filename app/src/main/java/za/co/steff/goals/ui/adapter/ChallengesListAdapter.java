@@ -83,6 +83,11 @@ public class ChallengesListAdapter extends BaseAdapter {
                 holder.viewProgressBackground.setBackgroundColor(context.getResources().getColor(PaletteType.getLightRes(aspect.getPalette().getTarget().getPaletteType())));
                 holder.viewProgressForeground.setBackgroundColor(context.getResources().getColor(PaletteType.getDarkRes(aspect.getPalette().getTarget().getPaletteType())));
 
+                // Rather show expiry text if it's set
+                if(challenge.getExpiresAt() != null) {
+                    holder.txtSince.setText("expires " + DateUtil.getNicePhraseFromDate(challenge.getExpiresAt(), false));
+                }
+
                 DecimalFormat format = new DecimalFormat("#,###,###");
                 if(challenge.getType() == ChallengeType.Percentage) {
                     holder.txtProgress.setText("" + challenge.getProgress() + "%");
