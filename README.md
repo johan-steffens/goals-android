@@ -1,7 +1,7 @@
 # Goals Android app
 
 ## Introduction
-An Android app to track long term life aspects and to challenge those aspects.
+An Android app that allows you to keep track of life aspects that you want to work on, and create challenges against those aspects to develop them.
 
 ## Thank you to the creators of the following dependencies:
 - [Butter Knife](https://jakewharton.github.io/butterknife/)
